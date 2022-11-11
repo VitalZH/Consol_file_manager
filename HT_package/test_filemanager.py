@@ -7,7 +7,17 @@
 
 
 # тестирование чистойфункции из файлового менеджера gjkefdnjvfnbxtcrjt
-from HT_package import HT_10_def_schet
+'''
+from HT_10_def_schet import function_for_test
 
 list_in = [1, 2, 3, 'abc']
-assert HT_10_def_schet.function_for_test(list_in) == 'Hello, Max', ' error'
+assert function_for_test(list_in) == , ' error'
+'''
+
+from HT_10_def_schet import salary, hello_who
+
+assert hello_who('Max') == 'Hello, Max', 'Hello who error'
+assert hello_who('Leo') == 'Hello, Leo', 'Hello who error'
+
+assert salary(2, 1) == 4, salary(2, 1)
+assert salary(2, 2) == 8
