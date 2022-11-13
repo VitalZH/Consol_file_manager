@@ -35,12 +35,11 @@ def salary(hours, salary_by_hour):
 def get_Pushkin():
     FAMOUS_PEOPLE = {'Александр Сергеевич Пушнин': '26.06.1799'}
     name, date = random.choice(list(FAMOUS_PEOPLE.items()))
-    return name, date
+    return (name, date)
 
 # окончание функции для проверки, ДЗ Тестирование функций
-print(get_Pushkin())
-if __name__ == '__main__':
 
+def victory_9():
     numbers = ['Пушкин А.С.', 'Лермонтов М.Ю.' , 'Гоголь Н.В.', 'Достоевский Ф.М.', 'Тургенев И.С.', 'Гончаров И.А.', 'Толстой Л.Н', 'Карамзин Н.М.', 'Гибоедов А.С.', 'Чехов А.П.']
 
     friend = {
