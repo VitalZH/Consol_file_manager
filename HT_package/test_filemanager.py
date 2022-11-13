@@ -14,4 +14,4 @@ def test2_salary():
     assert salary(2, 2) == 8
 
 def test_get_Pushkin():
-    assert get_Pushkin() == {'Александр Сергеевич Пушнин': '26.06.1799'}
+    assert get_Pushkin() == ('Александр Сергеевич Пушнин', '26.06.1799')
