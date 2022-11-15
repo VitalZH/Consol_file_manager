@@ -5,6 +5,9 @@ def function_for_test(list_in):
             list_temp.append(list_in[i])
     return list_temp
 
+list_in = [1, 2, 3, 'abc']
+print(function_for_test())
+
 def hello_who(name):
     return f'Hello, {name}'
 

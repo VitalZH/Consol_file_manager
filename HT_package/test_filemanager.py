@@ -1,4 +1,4 @@
-from HT_package.HT_9_victory import salary, hello_who, get_Pushkin
+from HT_package.HT_9_victory import salary, hello_who, get_Pushkin, function_for_test
 
 
 def test_hello_who():
@@ -15,3 +15,6 @@ def test2_salary():
 
 def test_get_Pushkin():
     assert get_Pushkin() == ('Александр Сергеевич Пушнин', '26.06.1799')
+
+def test_function_for_test():
+    assert test_function_for_test[1, 2, 3, 'abc'] == [1, 2, 3]

@@ -37,6 +37,13 @@ def get_Pushkin():
     name, date = random.choice(list(FAMOUS_PEOPLE.items()))
     return (name, date)
 
+def function_for_test(list_in):
+    list_temp = []
+    for i in range(len(list_in)):
+        if type(list_in[i]) == int:
+            list_temp.append(list_in[i])
+    return list_temp
+
 # окончание функции для проверки, ДЗ Тестирование функций
 
 def victory_9():
