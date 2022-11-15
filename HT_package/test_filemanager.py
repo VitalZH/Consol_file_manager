@@ -16,5 +16,7 @@ def test2_salary():
 def test_get_Pushkin():
     assert get_Pushkin() == ('Александр Сергеевич Пушнин', '26.06.1799')
 
+
 def test_function_for_test():
-    assert test_function_for_test[1, 2, 3, 'abc'] == [1, 2, 3]
+    list_in = [1, 2, 3, 'abc']
+    assert test_function_for_test(list_in) == [1, 2, 3]
