@@ -9,6 +9,12 @@ if os.path.exists('schet.txt'):
 else:
     schet = 0
 
+if os.path.exists('pokup_istor.txt'):
+    with open('pokup_istor.txt', 'r') as ff:
+        dict_buy = ff.read()
+else:
+    dict_buy = []
+
 # начало программы Счет
 story_cost = []
 story_name = []
@@ -54,6 +60,7 @@ def hist_def3():  # история покупок
 
 while True:
     print(f'сохраненный счет schet.txt:{schet}') #выводим на экран состояние счета с учетом файла schet.txt
+    print(f'сохранен. истор покуп pokup_istor.txt:{dict_buy}')  # выводим состояние счета с учетом файла pokup_istor.txt
     print('-----------------------------\nВыберите пункт меню 1-4')
     print('1. пополнение счета')
     print('2. покупка')
@@ -80,6 +87,8 @@ while True:
     elif choice == '4': # выход с сохранением в файл суммы счета
         with open('schet.txt', 'w') as f:
             f.write(f'{schet}\n')
+        with open('pokup_istor.txt', 'a') as ff:
+            ff.write(f'{dict(zip(story_name, story_cost))}')
         break
     else:
         print('Неверный пункт меню')

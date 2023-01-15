@@ -59,6 +59,7 @@ while True:
     print('4. просмотр содержимого рабочей директории')
     print('5. посмотреть только папки')
     print('6. посмотреть только файлы')
+    print('6_5 сохранить содержимое рабочей директории в файл')
     print('7. просмотр информации об операционной системе')
     print('8. создатель программы')
     print('9. играть в викторину')
@@ -101,6 +102,17 @@ while True:
         for item in def_list_dir():
             if os.path.isfile(item) == True:
                 print(f'Перечень файлов: {item}')
+
+    elif choice == '6_5':  # сохранить содержимое рабочей директории в файл
+        spis_papok = []
+        spis_file = []
+        for item in def_list_dir():
+            if os.path.isdir(item) == True:
+                spis_papok = spis_papok.append({item})
+            else:
+                spis_file = spis_file.append({item})
+        print(spis_papok, spis_file)
+        break
 
     elif choice == '7':  # просмотр информации об операционной системе
         print(f'Информация об ОС: {platform.platform()}')
