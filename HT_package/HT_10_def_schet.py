@@ -1,5 +1,15 @@
+
+
+# проверка наличия файла schet.txt с записанной суммой счета из пред. итерации (ДЗ - чтение\запись в файл)
+import os
+if os.path.exists('schet.txt'):
+    with open('schet.txt', 'r') as f:
+        for schet_istor in f:
+            schet = int(schet_istor)
+else:
+    schet = 0
+
 # начало программы Счет
-schet = 0
 story_cost = []
 story_name = []
 
@@ -43,6 +53,7 @@ def hist_def3():  # история покупок
 
 
 while True:
+    print(f'сохраненный счет schet.txt:{schet}') #выводим на экран состояние счета с учетом файла schet.txt
     print('-----------------------------\nВыберите пункт меню 1-4')
     print('1. пополнение счета')
     print('2. покупка')
@@ -50,6 +61,7 @@ while True:
     print('4. выход')
     choice = input('Выберите пункт меню: ')
     print('------------------------------')
+
 
     if choice == '1':
         schet_if1 = schet_def()
@@ -65,7 +77,9 @@ while True:
         buy_history = hist_def3()
         print(f'формируем словарь покупок: {buy_history}')
 
-    elif choice == '4':
+    elif choice == '4': # выход с сохранением в файл суммы счета
+        with open('schet.txt', 'w') as f:
+            f.write(f'{schet}\n')
         break
     else:
         print('Неверный пункт меню')
