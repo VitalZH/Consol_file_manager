@@ -108,9 +108,9 @@ while True:
         spis_file = []
         for item in def_list_dir():
             if os.path.isdir(item) == True:
-                spis_papok = spis_papok.append({item})
+                spis_papok.append(item)
             else:
-                spis_file = spis_file.append({item})
+                spis_file.append(item)
         print(spis_papok, spis_file)
         break
 
