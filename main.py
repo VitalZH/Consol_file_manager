@@ -111,8 +111,7 @@ while True:
                 spis_papok.append(item)
             else:
                 spis_file.append(item)
-        print(spis_papok, spis_file)
-        break
+        print(f'Список папок: {spis_papok}\n Список файлов: {spis_file}')
 
     elif choice == '7':  # просмотр информации об операционной системе
         print(f'Информация об ОС: {platform.platform()}')
