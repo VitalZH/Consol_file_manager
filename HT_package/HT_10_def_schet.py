@@ -84,7 +84,7 @@ while True:
         buy_history = hist_def3()
         print(f'формируем словарь покупок: {buy_history}')
 
-    elif choice == '4': # выход с сохранением в файл суммы счета
+    elif choice == '4': # выход с сохранением в файл суммы счета и истор покупок
         with open('schet.txt', 'w') as f:
             f.write(f'{schet}\n')
         with open('pokup_istor.txt', 'a') as ff:

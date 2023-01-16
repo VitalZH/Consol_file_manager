@@ -41,7 +41,7 @@ from os import walk
 from os import path
 import platform
 import sys
-
+import pickle
 
 def def_list_dir():
     list_dir = os.listdir()
@@ -104,6 +104,10 @@ while True:
                 print(f'Перечень файлов: {item}')
 
     elif choice == '6_5':  # сохранить содержимое рабочей директории в файл
+        if os.path.exists('fold_file_spis.txt'):
+            with open('fold_file_spis.txt', 'rb') as f:
+                fold_file = pickle.load(f)
+                print = (fold_file)
         spis_papok = []
         spis_file = []
         for item in def_list_dir():
@@ -111,7 +115,10 @@ while True:
                 spis_papok.append(item)
             else:
                 spis_file.append(item)
-        print(f'Список папок: {spis_papok}\n Список файлов: {spis_file}')
+        print(f'Список папок: {[spis_papok]}\n Список файлов: {[spis_file]}')
+        with open('fold_file_spis.txt', 'wb') as f:
+            pickle.dump((spis_papok, spis_file), f)
+
 
     elif choice == '7':  # просмотр информации об операционной системе
         print(f'Информация об ОС: {platform.platform()}')
