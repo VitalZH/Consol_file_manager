@@ -59,7 +59,7 @@ while True:
     print('4. просмотр содержимого рабочей директории')
     print('5. посмотреть только папки')
     print('6. посмотреть только файлы')
-    print('6_5 сохранить содержимое рабочей директории в файл')
+    print('65 сохранить содержимое рабочей директории в файл')
     print('7. просмотр информации об операционной системе')
     print('8. создатель программы')
     print('9. играть в викторину')
@@ -103,11 +103,13 @@ while True:
             if os.path.isfile(item) == True:
                 print(f'Перечень файлов: {item}')
 
-    elif choice == '6_5':  # сохранить содержимое рабочей директории в файл
+    elif choice == '65':  # сохранить содержимое рабочей директории в файл
+        print(f'запрос текущего состава директории: {def_list_dir()}')
+        print(f'__print2_ {type(def_list_dir())}')
         if os.path.exists('fold_file_spis.txt'):
             with open('fold_file_spis.txt', 'rb') as f:
                 fold_file = pickle.load(f)
-                print = (fold_file)
+                print(f'Принт проверка содержание файла на старте: {fold_file}')
         spis_papok = []
         spis_file = []
         for item in def_list_dir():
@@ -115,10 +117,10 @@ while True:
                 spis_papok.append(item)
             else:
                 spis_file.append(item)
-        print(f'Список папок: {[spis_papok]}\n Список файлов: {[spis_file]}')
+        print(f'результат цикла разделения папок: {spis_papok}, и файлов {spis_file}')
         with open('fold_file_spis.txt', 'wb') as f:
             pickle.dump((spis_papok, spis_file), f)
-
+            print(f'результат записи в файл fold_file_spis.txt папок: {spis_papok}, и файлов {spis_file}')
 
     elif choice == '7':  # просмотр информации об операционной системе
         print(f'Информация об ОС: {platform.platform()}')
