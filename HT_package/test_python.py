@@ -81,3 +81,6 @@ def test_pow_num():
 def test_hypot_num():
     return math.hypot(2, 4)
     assert math.typot(2,4) == hypot_num
+
+def test_fold_file_spis():
+    assert 'fold_file_spis.txt' in os.listdir()

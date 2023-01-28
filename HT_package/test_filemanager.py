@@ -24,8 +24,8 @@ def test_function_for_test():
     assert test_function_for_test(list_in) == [1, 2, 3, 'abc']
 
 def test_fold_file_spis_():
-    assert 'fold_file_spis.txt' in os.listdir(C:\Users\gmavi\PycharmProjects\Consol_file_manager\HT_package\HT_9_victory)
-
+    assert 'fold_file_spis.txt' in os.listdir("C://Users/gmavi/PycharmProjects/Consol_file_manager")
+    #C:\Users\gmavi\PycharmProjects\Consol_file_manager\HT_package
 
 def test_fold_1():
     os.mkdir('fold_1')
