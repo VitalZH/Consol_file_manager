@@ -1,36 +1,8 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
 '''
-1. Создать новый проект ""Консольный файловый менеджер"
-2. В проекте реализовать следующий функционал:
-После запуска программы пользователь видит меню, состоящее из следующих пунктов:
-- создать папку;
-- удалить (файл/папку);
-- копировать (файл/папку);
-- просмотр содержимого рабочей директории;
-- посмотреть только папки;
-- посмотреть только файлы;
-- просмотр информации об операционной системе;
-- создатель программы;
-- играть в викторину;
-- мой банковский счет;
-- смена рабочей директории (*необязательный пункт);
-- выход.
-Так же можно добавить любой дополнительный функционал по желанию.
+0. В проекте ""Консольный файловый менеджер"" перейти на новую ветку для добавления нового функционала;
+1. Где это возможно переписать код с использованием генераторов и тернарных операторов;
+2. Там где возможны исключительные ситуации добавить обработку исключений;
+3. *Где это возможно применить декораторы.
 '''
 import shutil
 import os
@@ -47,12 +19,11 @@ def def_list_dir():
     list_dir = os.listdir()
     return list_dir
 
-
-# print(os.getcwd())
-# print(list(walk(os.getcwd())))
+def add_line():
+    print('--' * 5, 'def_add_line', '--' * 5)
 
 while True:
-    print('-----------------------------------------------')
+    add_line()
     print('1. создать папку')
     print('2. удалить файл/папку')
     print('3. копировать файл/папку')
@@ -66,15 +37,18 @@ while True:
     print('10. мой банковский счет')
     print('11. смена рабочей директории *необязательный пункт')
     print('12. выход')
-    print('-----------------------------------------------')
+    add_line()
 
     choice = input('Выберите пункт меню: ')
     if choice == '1':  # создать папку
         mk_dir = input('Внесите название создаваемой папки: ')
+        '''было
         if not path.isdir(mk_dir):
             mkdir(mk_dir)
         else:
             print('Папка уже существует')
+        '''
+        mkdir(mk_dir) if not path.isdir(mk_dir) else print('Папка уже exists')
 
     elif choice == '2':  # удалить (файл/папку)
         rm_dir = input('Внесите название удаляемого файла\папки: ')
