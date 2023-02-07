@@ -69,8 +69,9 @@ while True:
 
     elif choice == '5':  # вывод только папок которые находятся в рабочей папке
         for item in def_list_dir():
-            if os.path.isdir(item) == True:
-                print(f'Перечень папок: {item}')
+            print(f'Текущ дир-я содержит папку: {item}') if os.path.isdir(item) == True else pass
+            #if os.path.isdir(item) == True:
+                #print(f'Перечень папок: {item}')
 
     elif choice == '6':  # вывод только файлов которые находятся в рабочей папке
         for item in def_list_dir():
