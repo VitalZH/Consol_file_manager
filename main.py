@@ -15,15 +15,21 @@ import platform
 import sys
 import pickle
 
+def add_line(f):
+    def inner(*args, **kwargs):
+        print('--' * 5, 'dekorator', '--' * 5)
+        result = f(*args, **kwargs)
+        print('--' * 5, 'dekorator', '--' * 5)
+        return result
+    return inner
+
 def def_list_dir():
     list_dir = os.listdir()
     return list_dir
 
-def add_line():
-    print('--' * 5, 'def_add_line', '--' * 5)
+def_list_dir = add_line(def_list_dir)
 
 while True:
-    add_line()
     print('1. создать папку')
     print('2. удалить файл/папку')
     print('3. копировать файл/папку')
@@ -37,7 +43,6 @@ while True:
     print('10. мой банковский счет')
     print('11. смена рабочей директории *необязательный пункт')
     print('12. выход')
-    add_line()
 
     choice = input('Выберите пункт меню: ')
     if choice == '1':  # создать папку
@@ -69,14 +74,11 @@ while True:
 
     elif choice == '5':  # вывод только папок которые находятся в рабочей папке
         for item in def_list_dir():
-            print(f'Текущ дир-я содержит папку: {item}') if os.path.isdir(item) == True else pass
-            #if os.path.isdir(item) == True:
-                #print(f'Перечень папок: {item}')
+            print(f'Текущ дир-я содержит папку: {item}') if os.path.isdir(item) == True else None
 
     elif choice == '6':  # вывод только файлов которые находятся в рабочей папке
         for item in def_list_dir():
-            if os.path.isfile(item) == True:
-                print(f'Перечень файлов: {item}')
+            print(f'Текущ дир-я содержит файл: {item}') if os.path.isfile(item) == True else None
 
     elif choice == '65':  # сохранить содержимое рабочей директории в файл
         print(f'запрос текущего состава директории: {def_list_dir()}')
