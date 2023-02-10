@@ -19,15 +19,13 @@ def add_line(f):
     def inner(*args, **kwargs):
         print('--' * 5, 'dekorator', '--' * 5)
         result = f(*args, **kwargs)
-        print('--' * 5, 'dekorator', '--' * 5)
         return result
     return inner
 
+@add_line #def_list_dir = add_line(def_list_dir)
 def def_list_dir():
     list_dir = os.listdir()
     return list_dir
-
-def_list_dir = add_line(def_list_dir)
 
 while True:
     print('1. создать папку')
@@ -82,18 +80,13 @@ while True:
 
     elif choice == '65':  # сохранить содержимое рабочей директории в файл
         print(f'запрос текущего состава директории: {def_list_dir()}')
-        print(f'__print2_ {type(def_list_dir())}')
         if os.path.exists('fold_file_spis.txt'):
             with open('fold_file_spis.txt', 'rb') as f:
                 fold_file = pickle.load(f)
-                print(f'Принт проверка содержание файла на старте: {fold_file}')
-        spis_papok = []
-        spis_file = []
-        for item in def_list_dir():
-            if os.path.isdir(item) == True:
-                spis_papok.append(item)
-            else:
-                spis_file.append(item)
+                print(f'Проверка содержания файла fold_file_spis.txt на старте: {fold_file}')
+        spis_papok = [item for item in def_list_dir() if os.path.isdir(item) == True]
+        spis_file = [item for item in def_list_dir() if os.path.isfile(item) == True]
+
         print(f'результат цикла разделения папок: {spis_papok}, и файлов {spis_file}')
         with open('fold_file_spis.txt', 'wb') as f:
             pickle.dump((spis_papok, spis_file), f)
