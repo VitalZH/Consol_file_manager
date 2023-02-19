@@ -1,35 +1,32 @@
-import os
-from os import path
-import pickle
+# пример работы со списками
+s = [[1, 2, 3, 4], [4, 5, 6]]
+print(f'num#1 {s[0]}')
+print(f'num#2 {s[1]}')
+m = s[0]
+print(f'num#4 {m}')
+print(f'num#5 {s[0][2]}')
+s[0][1] = 7
+print(f'num#7 {s}')
+print(f'num#8 {m}')
+m[2] = 9
+print(f'num#10 {s[0]}')
+print(f'num#11 {m}')
+s[1].append(12)
+print(f'num#13 {s[1]}')
 
-def def_list_dir():
-    list_dir = os.listdir()
-    return list_dir
+import random
+from random import randint
 
-while True:
-    print('6 сохранить содержимое рабочей директории в файл')
+# 1.блок выбора 15 случайных чисел для карточки
+list_15 = [randint(0, 90) for i in range(15)] # генератор списка из 15 случайных чисел от 0 до 90
+print(list_15)
 
-    choice = input('Выберите пункт меню: ')
-    if choice == '6':  # сохранить содержимое рабочей директории в файл
-        print(f'запрос текущего состава директории: {def_list_dir()}')
-        print(f'__print2_ {type(def_list_dir())}')
-        if os.path.exists('fold_file_spis.txt'):
-            with open('fold_file_spis.txt', 'rb') as f:
-                fold_file = pickle.load(f)
-                print(f'Принт проверка содержание файла на старте: {fold_file}')
-        spis_papok = ''
-        spis_file = ''
-        for item in def_list_dir():
-            if os.path.isdir(item) == True:
-                spis_papok += item
-            else:
-                spis_file += item
-        print(f'результат цикла разделения папок: {spis_papok}, и файлов {spis_file}')
-        with open('fold_file_spis.txt', 'wb') as f:
-            pickle.dump((spis_papok, spis_file), f)
+# 2.блок реализации пустой карточки для игры Лото
+blank_karta = [['1', '-', '-', '-', '-', '-', '-', '-', '-'],
+               ['-', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '-'],
+               ['-', '-', '-', '-', '-', '-', '-', '-', '9']]
+for row in blank_karta:
+    poz_in_lin = random.sample(range(1, 10), 5) # генератор позиц (неповтор) в линии карты (range +1 не включая последний элемент)
+    print(' '.join(str(elem) for elem in row)) #Вывод на экран карточки, используя генератора строки из списка через Join
 
-    elif choice == '12':
-        break
-    else:
-        print('Неверный пункт меню')
-
+print(poz_in_lin)
