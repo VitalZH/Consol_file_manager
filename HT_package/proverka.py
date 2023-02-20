@@ -27,6 +27,11 @@ blank_karta = [['1', '-', '-', '-', '-', '-', '-', '-', '-'],
                ['-', '-', '-', '-', '-', '-', '-', '-', '9']]
 for row in blank_karta:
     poz_in_lin = sorted(random.sample(range(1, 10), 5)) # генератор позиц (неповтор) в линии карты (range +1 не включая последний элемент)
+    print('poz_in_lin;', poz_in_lin)
+    for i in range(len(list_15[0:5])):
+        print('возврат эл i;', i, list_15[i], poz_in_lin[i])
+        #if list_15[i] in poz_in_lin:
+            #blank_karta.remove(list_15[i])
     print(' '.join(str(elem) for elem in row)) #Вывод на экран карточки, используя генератора строки из списка через Join
 
 print(poz_in_lin)
